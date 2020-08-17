@@ -95,12 +95,12 @@ int main() {
 			else {
 				string romanString = "";
 				for (unsigned int i = 0; i < userString.size(); ++i) {
-					if (isdigit(userString.at(i))) {							// Checks to see if character is a digit
+					if (isdigit(userString.at(i))) {												// Checks to see if character is a digit
 						romanString.append(numToSymbol(userString.size() - i, userString.at(i)));	// Uses function to convert digit to char and appends
 					}
 					else {
-						romanString = "invalid";							// If character isn't a digit, sets string to invalid
-						break;										// and breaks out of for loop
+						romanString = "invalid";													// If character isn't a digit, sets string to invalid
+						break;																		// and breaks out of for loop
 					}
 				}
 
@@ -125,21 +125,21 @@ int main() {
 				if (userString.at(i) == 'I' || userString.at(i) == 'i') {
 					if (prevChar == 'L' || prevChar == 'C' || prevChar == 'D' || prevChar == 'M') {
 						numSum = -1;
-						break;								// If previous char is a larger place value than the current character
-					}									//  sets sum to -1 and breaks out of for loop
+						break;														// If previous char is a larger place value than the current character
+					}																//  sets sum to -1 and breaks out of for loop
 					else if (prevChar == 'V' || prevChar == 'X') {					
-						numSum -= I_VALUE;						// If previous char is the same place value, substracts value from sum
+						numSum -= I_VALUE;											// If previous char is the same place value, substracts value from sum
 					}
 					else {
 						numSum += I_VALUE;
-						prevChar = toupper(userString.at(i));				// Sets previous char to upper case to facilitate comparing in case of lowercase
+						prevChar = toupper(userString.at(i));						// Sets previous char to upper case to facilitate comparing in case of lowercase
 					}
 				}				
 				else if (userString.at(i) == 'V' || userString.at(i) == 'v') {
 					if (prevChar == 'X' || prevChar == 'L' || prevChar == 'C' || prevChar == 'D' || prevChar == 'M') {
 						numSum = -1;
-						break;								// If previous char is a larger place value than the current character
-					}									// sets sum to -1 and breaks out of for loop
+						break;														// If previous char is a larger place value than the current character
+					}																// sets sum to -1 and breaks out of for loop
 					else {
 						numSum += V_VALUE;
 						prevChar = toupper(userString.at(i));
@@ -147,10 +147,10 @@ int main() {
 				}
 				else if (userString.at(i) == 'X' || userString.at(i) == 'x') {
 					if (prevChar == 'D' || prevChar == 'M') {
-						numSum = -1;							// If previous char is a larger place value than the current character
-						break;								// sets sum to -1 and breaks out of for loop
+						numSum = -1;												// If previous char is a larger place value than the current character
+						break;														// sets sum to -1 and breaks out of for loop
 					}
-					else if (prevChar == 'L' || prevChar == 'C') {				// If previous char is the same place value, substracts value from sum
+					else if (prevChar == 'L' || prevChar == 'C') {					// If previous char is the same place value, substracts value from sum
 						numSum -= X_VALUE;
 					}
 					else {
@@ -160,8 +160,8 @@ int main() {
 				}
 				else if (userString.at(i) == 'L' || userString.at(i) == 'l') {
 					if (prevChar == 'C' || prevChar == 'D' || prevChar == 'M') {
-						numSum = -1;							// If previous char is a larger place value than the current character
-						break;								// sets sum to -1 and breaks out of for loop
+						numSum = -1;												// If previous char is a larger place value than the current character
+						break;														// sets sum to -1 and breaks out of for loop
 					}
 					else {
 						numSum += L_VALUE;
@@ -169,8 +169,8 @@ int main() {
 					}
 				}
 				else if (userString.at(i) == 'C' || userString.at(i) == 'c') {
-					if (prevChar == 'D' || prevChar == 'M') {				// If previous char is the same place value, substracts value from sum
-						numSum -= C_VALUE;
+					if (prevChar == 'D' || prevChar == 'M') {						// If previous char is the same place value, substracts value from sum
+						numSum -= C_VALUE;	
 					}
 					else {
 						numSum += C_VALUE;
@@ -178,8 +178,8 @@ int main() {
 					}
 				}
 				else if (userString.at(i) == 'D' || userString.at(i) == 'd') {
-					if (prevChar == 'M') {							// If previous char is a larger place value than the current character
-						numSum = -1;							// sets sum to -1 and breaks out of for loop
+					if (prevChar == 'M') {											// If previous char is a larger place value than the current character
+						numSum = -1;												// sets sum to -1 and breaks out of for loop
 						break;
 					}
 					else {
@@ -191,8 +191,8 @@ int main() {
 					numSum += M_VALUE;
 					prevChar = toupper(userString.at(i));
 				}
-				else {										// If the character not a letter and 1 of the 7 roman numerals
-					numSum = -1;								// sets the sum to -1 and breaks out of for loop
+				else {																// If the character not a letter and 1 of the 7 roman numerals
+					numSum = -1;													// sets the sum to -1 and breaks out of for loop
 					break;
 				}
 			}
